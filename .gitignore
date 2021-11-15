@@ -141,6 +141,10 @@ ubuntu_venv/
 # apps
 sample-apps/*/logs
 sample-apps/*/train
+apps/
+
+# datasets
+datasets/
 
 # docs build
 docs/build
