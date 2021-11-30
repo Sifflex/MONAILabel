@@ -16,7 +16,7 @@ from typing import Dict
 
 from lib import DeepEdit, DeepEditSeg, MyStrategy, MyTrain
 from monai.networks.nets import BasicUNet
-from monai.networks.nets.dynunet_v1 import DynUNet
+from monai.networks.nets.dynunet import DynUNet
 
 from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.datastore import Datastore
@@ -156,7 +156,7 @@ class MyApp(MONAILabelApp):
                 load_path=self.pretrained_model,
                 publish_path=self.final_model,
                 config={"pretrained": strtobool(self.conf.get("use_pretrained_model", "true"))},
-                debug_mode=False,
+                debug_mode=strtobool(self.conf.get("debug", "false")),
                 find_unused_parameters=self.find_unused_parameters,
             )
         }
